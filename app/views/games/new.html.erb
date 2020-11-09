@@ -1,0 +1,20 @@
+<div class="container">
+
+<h2>Longest Word Game</h2>
+
+<div class="letters list-inline">
+  <% @letters.each do |letter| %>
+    <div class="letter"><p><%= letter.upcase %></p></div>
+  <% end %>
+</div>
+
+  <p class="ask">Make up a word with these letters:</p>
+  <form action="/score" method="post" class="form">
+    <input type="text" name="word" placeholder="Enter a word">
+    <input type="submit" class="button" value="Check">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+<!--     <input id="token" name="token" type="hidden" value="<%=@letters%>"/> -->
+  </form>
+
+</div>
